@@ -1,0 +1,23 @@
+Optimal approach :
+
+If the number given by the power function is lesser than the given M, then we have to move to the right to find any other number satisfies the given condition.
+If it is greater, we have to move to the left to find any other number satisfies the given condition as the numbers greater than that number will not satisfy the condition.
+
+Always, assign the low as the number which can be the minimal possible answer and assign the high as the number which can be the maximal possible answer.
+In this case, we assign low = 1 and high = n.
+
+Doing standard binary search, we can find the answer.
+
+EDGE CASES : 
+But, there are overflow cases which we have to care about.
+Since, computing mid^n could give us big numbers which we will not be able to store with any datatype, we have come up with another idea.
+
+We just want to know if the number returned by the function will exceed M or not.
+
+So, we can modify the function to return a number (here, we return 2) in case the number (ans) exceeds the value m. Otherwise, it must be equal to M or less than M.
+
+These cases are handled separately by returning different numbers(1 and 0) for each condition and handling that condition inside the binary search condition.
+
+Therefore, we avoided the condition to find the value of mid^n and we just end up finding whether the computed value will exceed the value of M or not.
+
+This way, we can solve this problem in O(logN * logM) complexity (if power exponentiation method is used) or O(logM * N) complexity (if linear iteration is used).
