@@ -1,0 +1,30 @@
+For Brute Force, Linear iteration
+
+for(int i = 1; i <= n; i++) //here n*n can be the maximum possible range a number can go (since 1X1 = 1)
+Initially ans = 1 //since this can be the min possible ans
+
+Optimal approach :
+If, till a certain point the answer might be possible and till a certain point the answer is not possible, we can always apply binary search.
+
+First, find the range of answers 
+low = 1;
+high = n;
+ Eliminate one half by  checking the condition mid*mid <= n
+True : Update ans and move low = mid+1;
+False : move high = mid-1;
+In binary search, either high or low will always point to the answer.
+In this problem, high will always point to the ans. So, either return high or return ans.
+
+Important Notes : 
+Binary Search on answers : Always focus on the range of answers 
+
+If to change the problem statement, find the maximum integer which on squaring will be <= n.
+
+For all BS on answers, they will ask to find the minimum possible integer or maximum possible integer.
+
+Pattern : 
+If you are sure about the range of answers, and if they ask to find the max or min integer, always there exist a solution using binary search. 
+
+Always use binary search and change the check condition within the binary search according to the problem.
+
+Use long long int to avoid oveflow of the integer type.
