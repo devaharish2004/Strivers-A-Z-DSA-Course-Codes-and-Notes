@@ -1,0 +1,39 @@
+Question :
+
+A monkey is given ‘n’ piles of bananas, whereas the ‘ith’ pile has ‘a[i]’ bananas. An integer ‘h’ is also given, which denotes the time (in hours) for all the bananas to be eaten.
+
+Each hour, the monkey chooses a non-empty pile of bananas and eats ‘k’ bananas. If the pile contains less than ‘k’ bananas, then the monkey consumes all the bananas and won’t eat any more bananas in that hour.
+
+Find the MINIMUM number of bananas ‘k’ to eat per hour so that the monkey can eat all the bananas within ‘h’ hours.
+
+Ex : arr[] = [3,6,7,11] , h = 8
+Output : 4
+
+Brute Force :
+Starting from count = 1, iterate through the array to find if its computed value will be less than h.
+If it is greater, then increase the count and repeat the steps.
+We can find the range (that is from 1 to the maximum value in the array ) and iterate only in that portion to find the required time to complete the bananas.
+But, however optimized, this approach will give TLE.
+
+Optimal approach :
+Since we have to search for an element that satisfies the given condition (which the question states that it must also be a minimum value), we can think of a binary search approach.
+
+For that, we have to find the range of the answer limit and figure out if the question is asking to find min or max.
+
+Initially, the minimum answer can be 1 (low) and the maximum answer can be the maximum number in the array (high) - In the given testcase, high = 11
+
+Applying standard binary search and eliminating one half of the array for every iteration.
+
+Finally, the ans can be figured out using the ans variable.
+There is another approach to figure out the answer.
+
+Always, in binary search, either the low or high will point to the answer.
+
+How to find if low or right is my answer ?
+1) Either dry run the code
+2) * Initially, if low stands in the not possible area, it will definitely point to the possible area of the array at the end and vice versa. (Same applies to high also).
+Low and high will always point in their opposite area. (If low is present in not possible area, then high will be present in the possible area. Finally they both exchange their areas - at the end, low comes to the possible area and high comes to the not possible area).
+
+Here, initially low is present in the not possible area and high is present in the possible area. At the end, high will point in the not possible area and low will point to the possible area. Therefore, in this case, LOW is the answer.
+
+TC : O(N) * O(log(max(arr))) - since we iterate through the array for every mid and search space of binary search is max(arr).
