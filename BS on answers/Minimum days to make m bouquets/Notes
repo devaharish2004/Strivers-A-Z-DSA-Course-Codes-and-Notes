@@ -1,0 +1,47 @@
+Question :
+You are given ‘N’ roses and you are also given an array ‘arr’  where ‘arr[i]’  denotes that the ‘ith’ rose will bloom on the ‘arr[i]th’ day.
+You can only pick already bloomed roses that are adjacent to make a bouquet. You are also told that you require exactly ‘k’ adjacent bloomed roses to make a single bouquet.
+Find the MINIMUM number of days required to make at least ‘m’ bouquets each containing ‘k’ roses. Return -1 if it is not possible.
+Examples :
+ N = 8, arr[] = {7, 7, 7, 7, 13, 11, 12, 7}, m = 2, k = 3
+Output : 12
+
+Brute Force :
+How to deal with the impossible case ?
+If m * k > n, then it is impossible to make the bouquets from given n flowers. So, we return -1 if this case occurs.
+
+Instead of iterating in the array for any random number, we can find the range in which our answer lies and reduce the searching time.
+Always, the maximum of the array will be one of the answers. So, it will be high value since we want the minimum days.
+We can start checking from the minimum of the array ( since any number before that will give only zero bouquets).
+So, in this case, we have our answer range as 7 to 13 (inclusive)
+
+Starting from 7 till 13, try to find the minimum day for which the count of bouquets will be equal to M.
+Linearly iterating from 7 to 13 and finding the answer.
+
+How to calculate the number of bouquets that can be formed on the given day ?
+Given k = Number of flowers in each bouquet 
+* For each element in the array, if element <= day, count++;
+* Else, there is no consecutiveness and the count must be changed to zero. But before that, we can just divide the count by the number of flowers in each bouquet to find how many bouquets can be formed from those consecutive numbers.
+At the end of the array, whatever the value of the count, just divide it by k to not miss the values.
+If the value of count >= m return True (since it can be an answer) . Else return False.
+
+TC : O(maxi-mini+1) * O(N) - since we call the above function to find the number of bouquets that can be formed for the given day and we call it for each number from mini to maxi.
+
+Optimal approach :
+Binary Search - since we are searching for a number between the range mini and maxi, and we have to find the minimum element that satisfies the condition. We already know for some elements the answer can be possible and for some elements, the answer cannot be possible.
+
+Here the answer range is [ 7 8 9 10 11 12 13] .
+In the range of [7,11], the answer was not possible. 
+But for the range of [12, 13] the answer is possible.
+
+We can find the mid for the low and high
+If the answer is not possible for mid, then the elements lesser than mid cannot be the possible answers. 
+If the answer is possible for mid, then we have to find the minimum element for which the answer can be possible. 
+
+Here, low will be pointing to the answer as  initially low was pointing to the part where none of them are possible answers. So, either we can return low or update ans as we move through.
+
+Overflow edge case :
+When there are no answers, we return -1 due to the condition m*k > n. But, if m and k are large enough, there are chances that the product m*k  will overflow the integer datatype.
+Therefore, instead of doing as such, we can give the condition as if m > n/k. This avoids the overflow condition and also satisfy the requirements.
+
+TC : O(N) * O(log(max-min+1))
