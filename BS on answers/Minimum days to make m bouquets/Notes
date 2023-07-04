@@ -42,6 +42,6 @@ Here, low will be pointing to the answer as  initially low was pointing to the p
 
 Overflow edge case :
 When there are no answers, we return -1 due to the condition m*k > n. But, if m and k are large enough, there are chances that the product m*k  will overflow the integer datatype.
-Therefore, instead of doing as such, we can give the condition as if m > n/k. This avoids the overflow condition and also satisfy the requirements.
+Therefore, instead of doing as such, we can give the condition as if m > n/k. This avoids the overflow condition and also satisfy the requirements. Otherwise, we can also assign m*k to a long long variable to avoid overflow.
 
 TC : O(N) * O(log(max-min+1))
