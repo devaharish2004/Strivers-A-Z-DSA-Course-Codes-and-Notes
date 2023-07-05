@@ -1,0 +1,41 @@
+Question :
+ You are given an array of integers ‘arr’ and an integer i.e. a threshold value ‘limit’. Your task is to find the SMALLEST positive integer divisor, such that upon dividing all the elements of the given array by it, the sum of the division’s result is less than or equal to the given threshold value.
+Example :
+N = 5, arr[] = {1,2,3,4,5}, limit = 8
+Output : 3
+We can get a sum of 15(1 + 2 + 3 + 4 + 5) if we choose 1 as a divisor. 
+The sum is 9(1 + 1 + 2 + 2 + 3)  if we choose 2 as a divisor. Upon dividing all the elements of the array by 3, we get 1,1,1,2,2 respectively. Now, their sum is equal to 7 <= 8 i.e. the threshold value. So, 3 is the minimum possible answer.
+
+Solution :
+
+Brute Force :
+
+Since the question asks for positive integer divisor, we can start of with the number 1.
+We can consider the maximum value of the array to be the greatest value that we can obtain.
+We can also consider numbers greater than the maximum value, but since we want the minimum number, we will stop.
+Whatever the number we consider the divisor after the max value in the array, we will get the same answer.
+
+Iterate from 1 to the max value in the array and for each integer, traverse through the array and find out the minimum possible element.
+
+TC : O(N) * O(max(arr))
+
+Optimal approach :
+
+Whenever the question asks for minimum or maximum, and if it is possible to figure out the range, we can use binary search on answers.
+
+If we increase the divisor value, the threshold value will decrease always.
+
+Do the standard binary search and for each mid element, compute the function and find if the sum value is greater than the threshold or not.
+
+Finally, keep track of the mid element and return it.
+
+In this case, low started with the not possible cases and high started with the possible ones,
+
+So, at the end, low will be pointing to the possible value and high will be pointing to the not possible value (they will move to their opposite polarities).
+
+Therefore, we can return either the LOW value or the answer can be updated for each and every step.
+
+Note :
+While using the ceil function, make sure that you convert the integer values to double and divide them to give the decimal points.
+
+TC : O(N) * O(log(max(arr)))  - log is of base 2
