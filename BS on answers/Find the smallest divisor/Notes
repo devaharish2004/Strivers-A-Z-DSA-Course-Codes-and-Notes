@@ -40,6 +40,6 @@ While using the ceil function, make sure that you convert the integer values to 
 
 This code always work under the assumption that the answer is always possible. When will the answer be not possible ?
 Carefully observing, the minimum sum that we can obtain is when we divide every integer with the maximum number in the array - which means sum will be equal to the size of the array. 
-Therefore, if size of the array < limit, then we can return -1 - the answer will not be possible.
+Therefore, if size of the array > limit, then we can return -1 - the answer will not be possible. (since size of the array is the minimum sum possible)
 
 TC : O(N) * O(log(max(arr)))  - log is of base 2
