@@ -1,0 +1,58 @@
+Question :
+
+A conveyor belt has packages that must be shipped from one port to another within days days.
+
+The ith package on the conveyor belt has a weight of weights[i]. Each day, we load the ship with packages on the conveyor belt (in the order given by weights). We may not load more weight than the maximum weight capacity of the ship.
+
+Return the least weight capacity of the ship that will result in all the packages on the conveyor belt being shipped within days days.
+
+Example :
+
+weights = [1,2,3,4,5,6,7,8,9,10], days = 5
+Output : 15
+Explanation: A ship capacity of 15 is the minimum to ship all the packages in 5 days like this:
+1st day: 1, 2, 3, 4, 5
+2nd day: 6, 7
+3rd day: 8
+4th day: 9
+5th day: 10
+
+Note that the cargo must be shipped in the order given, so using a ship of capacity 14 and splitting the packages into parts like (2, 3, 4, 5), (1, 6, 7), (8), (9), (10) is not allowed.
+
+Solution :
+
+First of all, we need to find out the possible capacity of the ship. 
+
+One thing we are sure is that, whatever the  maximum weight in the array, that has to be the MINIMUM value to be able to transport all the packages.
+For example, in this case, any number less than 10 will not be the answer as it will become impossible to transport some of the  packages  if I take the answer as less than 10.
+
+To find the maximum of the range, we can take the sum of all weights to be the MAXIMUM value, so that it is possible to ship every weight in the 1st day itself.
+
+ The answer will always be between the maximum of the array and the sum of the array.
+low = maximum value in the array
+high = sum of the array elements
+
+Brute Force :
+Iterate from low to high, and for each iteration, compute the days required to ship all the packages if the capacity is i. (which can be computed using a separate function).
+
+In the computing function, take the initial day = 1 and compute how many days are required to load the ship.
+
+TC : O(sum-max+1) * O(N)
+
+Optimal approach :
+
+ Here, we want to find the least value and we also know the range. So, we can use binary search on answers.
+
+We also know the area where it is possible and not possible.
+
+Standard binary search from the range low to high and move the pointer accordingly.
+
+Note :
+In this question, the low and high values vary when compared to the previous problems. (In previous problems, low = 1 and high = max(arr). But in this question, low = max(arr) and high = sum(arr). Therefore, it is very crucial to find the range before solving the problem.
+
+In C++ :
+* Sum of a vector can be found by using the accumulate function
+* Max element of a vector can be found by using the max_element function 
+
+
+TC : O(N) * O(log(sum-max+1))
