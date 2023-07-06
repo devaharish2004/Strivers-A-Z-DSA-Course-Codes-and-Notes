@@ -1,0 +1,88 @@
+Question : 
+Given an array arr of positive integers sorted in a strictly increasing order, and an integer k.
+Return the kth positive integer that is missing from this array.
+
+Example :
+Input: arr = [2,3,4,7,11], k = 5
+Output: 9
+Explanation: The missing positive integers are [1,5,6,8,9,10,12,13,...]. The 5th missing positive integer is 9.
+
+Solution :
+Brute Force :
+There can be many brute force approaches. This one is easier.
+If we carefully observe, the minimum answer will the value of k.
+Ex: If arr = [5,6,7,8] and k = 4, then the kth missing number will be k itself and will not be less than that.
+Observation :
+If any number less than or equal to k is present in the array, then our answer will be shifted one place ahead.
+Therfore, our answer will be k initially. And for each integer less than or equal to k, our answer will be shifted one place. Because, numbers less than k will take one place.
+
+TC : O(N)
+
+Optimal approach :
+If the interviewer asks to optimize the solution, then we can think of binary search (since optimizing O(N) will result in O(logN) and given the array is sorted).
+
+We cannot apply the standard binary search algorithm as the answer we want is missing in the array.
+We also cannot apply the BS on answers as we can apply it when we need to find maximum or minimum value
+
+How can we figure out the answer ?
+Let arr = [2,3,4,7,11] , k = 5
+Ideally, without missing numbers, the array should have been arr = [1,2,3,4,5]
+We can find the missing numbers by subtracting.
+
+2-1 = 1 number is missing at index 0
+3-2 = 1 number is missing at index 1
+4-3 = 1 number is missing at index 2
+7-4 = 3 numbers are missing at index 3
+11-5 = 6 numbers are missing at index 4
+
+Therefore, missing = [1,1,1,3,6]
+Perform a binary search on this array to find k.
+When high and low are crossed, high will point to index 3 and low will point to index 4. (Since k = 5 lies between 3 and 6)
+
+high stands at a point < k and low stands at a point > k ( here point refers to  the elements of the missing array)
+
+Low and high have changed their polarities. So we end up at two nearby indices.
+
+How to find the answer ?
+
+Here we stand at arr[high] = 7. Also the missing elements at that index is 3. 
+So, we want to move arr[high] 2 elements  (k-missing = 5-3 = 2) to the right to find the answer.
+
+So, we have to return arr[high] + k - missing as the answer.
+
+We do the standard binary search algorithm.
+This time, instead of using mid for checking the conditions, we can use missing which is obtained from the mid value.
+
+low = 0 //first index
+high = n-1 //last index
+while(low <= high)
+{
+  int mid = (low+high)/2;
+  int missing = arr[mid]-(mid+1) //since mid+1 will be the ideal element of that array, if the array were to contain no missing elements.
+  if(missing < k) low = mid+1
+  else high = mid-1
+}
+return (formula)
+
+Steps to determine the formula :
+Why formula ?
+Since high can go beyond the indices of the array ( < 0 can be possible), we should devise a formula that is independent of arr[high].
+
+We know that,
+answer = arr[high] + (k-missing)  --->1 
+( Since k-missing will give the remaining count of missing elements that can be added to arr[high] and return it as answer)
+
+Formula for missing numbers :  missing = arr[high]-(high+1) ---> 2
+
+Substituting 2 in 1:
+answer = arr[high] + ( k - ( arr[high]-high-1 ) )
+answer = arr[high] + k - arr[high] + high + 1
+=> answer = k + high + 1 
+=> answer = k + (high + 1)
+
+Therefore, it is enough to return k + high + 1, which can handle that edge case also where high = -1. 
+If high = -1, answer = k + (-1+1) = k.
+
+Also, we know that low = high+1 (since they've crossed)
+
+So, we can return k + low also.
