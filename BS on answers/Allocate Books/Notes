@@ -1,0 +1,27 @@
+This is one of the hardest questions in Binary Search. It is of the type minimum(maximum) of Binary Search.
+Also, we have to take only contiguous parts of the array.
+
+THE RETURN -1 CONDITION :
+When number of students > number of books, it's impossible to allocate books to all students.
+
+SOLUTION :
+BRUTE FORCE :
+Finding the range can be useful in this problem.
+If we take ans = 1 as the maximum can be assigned, we cannot assign a book that has pages > 1.
+If we take ans = minimum of the array as the maximum can be assigned, we cannot assign a book that has pages > value.
+If we take the maximum value in the array to be our answer, then we can be sure that each student will take a book.
+Therefore, the lowest answer will start from the maximum value of the array.
+We consider this could be our answer and allocate books such that the number of pages do not exceed the answer.
+Whenever the sum of pages exceed the ans value, we can assign that book to a new student.
+
+The high value can be the sum of the array, as the worst case can be one student assigned every books.
+Do the linear search to find the answer.
+
+TC : O(sum-max+1) * O(N)
+
+OPTIMAL SOLUTION :
+Binary search on answers.
+
+Since initially low will be at the not possible area, it will finally point to the possible area. So, we can return low.
+
+TC : O(log(sum-max+1))*O(N)
