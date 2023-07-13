@@ -7,7 +7,7 @@ double median(vector<int>& a, vector<int>& b) {
 	int n1 = a.size();
 	int n2 = b.size();
 	int low = 0;
-	int high = n1-1;
+	int high = n1;
 	while(low <= high)
 	{
 		int cut1 = (low + high)/2;
