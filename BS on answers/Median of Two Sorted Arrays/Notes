@@ -61,7 +61,7 @@ For even length arrays, every steps are same, except that the median formula wil
 DRY RUN :
 arr1 = [7,12,14,15]
 arr2 = [1,2,3,4,9,11]
-low=0, high = arr1.size() -1 = 4, total length = n = 10 (
+low=0, high = arr1.size() = 4, total length = n = 10 ( minimum we can take 0 elements from arr1, maximum we can take all elements from arr1)
 cut1 = 0+4 / 2 = 2, which means that taking two elements from arr1.
 cut2 = 5 - cut1 = 5 - 2 = 3 elements from arr2.
 Now left1 = 12, left2 = 3, right1 = 14, right2 = 4 (12 <= 4 - False) - decrease the left1 value. So move to the left (high = cut1-1)
