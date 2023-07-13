@@ -1,0 +1,21 @@
+Brute Force : 
+O(N*M), where ‘N’ is the number of rows and ‘M’ is the number of columns in the given matrix.
+
+Better Approach :
+Since each row is sorted, we can use Binary Search to count the ‘1’s in each row.
+We find the index of the first instance of ‘1’ in each row which the first time we find a ‘1’ in each row.
+The count of ‘1’s will be equal to the total number of columns minus the index of the first ‘1’.
+And finally, we can return the row index with the maximum count of ‘1’s.
+TC : O(N * log(M)) - Code is in Better Approach
+
+Optimised approach :
+Skipping rows based on the index where 1 occurred in the previous row.
+
+Get the index of the leftmost ‘1’ in the first row.
+Do the following for every row after the first row.
+If the element on the left of the previous leftmost ‘1’ is ‘0’, then we will ignore this row.
+Else, move left until a ‘0’ is found.
+Update the leftmost index to this index and “maxIndex” (row index with the maximum number of ones) to be the current row.
+Finally, we can return the “maxIndex
+TC : O(N+M)
+Since we can possibly go as far left as we came ahead in the first step, so the overall time complexity will be O(N+M).
