@@ -82,3 +82,5 @@ For odd length array, where n1+n2 is odd (say 11), we can split into two halves 
 If we say left partition has a length of 6, and we start the problem from there, it would be easy.
 So, cut2 = (n1+n2+1)/2 - cut1 
 The above should work for even length also. Ex : 5+6+1 = 12/2 = 6 && 5+5+1 = 11/2 = 5 (it works).
+
+ A common question, why take first smaller array, because the complexity of bs is search space, so the smaller the search space, smaller the complexity. You can take the larger array, but the search space will be bigger. 
