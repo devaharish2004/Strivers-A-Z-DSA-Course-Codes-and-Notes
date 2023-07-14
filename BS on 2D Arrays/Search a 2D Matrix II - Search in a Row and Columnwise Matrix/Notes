@@ -1,0 +1,13 @@
+Brute Force : Two loops linear iteration 
+TC : O ( N ^ 2 )
+
+Better Approach :
+Traversing through each row in linear fashion and traversing through each column using binary search for every row.
+TC : O ( N * log(M) )
+
+Optimal Solution :
+Either we can start from the top-right or bottom-left point. Here we can see how to start from top-right point.
+If the current element is less than the target, then it is obvious that elements that are in the left in the same row will be smaller than the target. So, row++ (we have to search in the same column to find target)
+If the current element is greater than the target, then it is obvious that elements in the bottom will be greater than the target. So, col-- (we have to search in the same row to find element that is less than the target)
+
+TC : O(N + M) - since in worst case, we iterate through every row and column exactly once.
