@@ -4,7 +4,9 @@ TC : O (N * M)
 
 Better approach (Own approach): Binary Search on either of the parameters (row or column)
 The Java code given is in this approach.
-TC : O (log(M) * log(N)) = O(logM + logN)
+Find the row where the target should be searched. If the first element of the row is greater than the target, then we need to search in rows less than the current row.
+When firstelement <= target in some row, we can check if the element is present in that row or not by performing another binary search within the same row but between different columns.
+TC : O (log(M) * log(N))
 
 Optimal approach :
 The CPP code is given in this approach.
@@ -24,4 +26,4 @@ In a 2D matrix, each element can be uniquely identified by its row index and col
 To find the row index, we can divide the index i by the number of columns n. The quotient of this division gives us the row index. This is because every n elements in the matrix belong to the same row. For example, in a matrix of size 3 x 4, the first 4 elements belong to the first row, the next 4 elements belong to the second row, and so on.
 To find the column index, we can take the remainder of the same division (i divided by n). This is because the remainder gives us the position of the element within the row. For example, if i is 5 and n is 4, then the row index is i/n = 5/4 = 1 (integer division gives us 1) and the column index is i mod n = 5 mod 4 = 1.
 
-TC : O (log(M) * log(N)) = O(logM + logN)
+TC : O (log(M*N)) = O(logM + logN)
