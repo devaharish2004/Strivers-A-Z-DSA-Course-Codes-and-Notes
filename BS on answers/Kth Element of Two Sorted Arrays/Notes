@@ -1,0 +1,18 @@
+Brute Force :
+Two pointer approach (similar to previous) : TC : O(k) SC : O(1)
+
+Optimal approach :
+Solution is similar to the previous problem solution. The  one thing that differs is that we should take K elements at the left part of the array. The answer will be the maximum element in the left part. That is max(left1,left2) will be our answer.
+TC : O ( log( min(n,m) ) )
+EDGE CASES :
+If arr1 = [ 7, 12, 14, 15 ] and arr2 = [ 1, 2, 3, 4, 9, 11 ] ( n1 = 4 and n2 = 6) 
+* k = 3
+We can' t take 4 elements from arr1 as we totally need only maximum 3 elements from arr1.
+so, low = 0, high = 3
+* k = 7
+We will take maximum all 4 elements from arr1 and minimum 0 elements from arr1.
+But, if we take 0 elements from arr1, it is impossible to take all 7 elements from arr2 as we have totally only 6 elements in arr2. So, we have to take atleast 1 element from arr1.
+So, low = 1, high = 4
+These edge cases arise as we have to take only K elements from the final sorted array.
+To handle these, we can give as such :
+low = max ( 0, k-m ) and high = min ( k, n )
