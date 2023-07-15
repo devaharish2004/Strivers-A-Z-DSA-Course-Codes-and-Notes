@@ -1,4 +1,5 @@
 class Code {
+    //Java code
     public boolean searchMatrix(int[][] matrix, int target) {
         int rows = matrix.length;
         int cols = matrix[0].length;
