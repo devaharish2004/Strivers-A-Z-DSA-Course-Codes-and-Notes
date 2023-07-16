@@ -1,0 +1,9 @@
+Since we have to find the frequency and sort characters based on that, we can use map data structure to find the frequency.
+Also, we have to sort the characters in decreasing fashion based on their frequency.
+So, we can use a priority queue which will sort the elements in decreasing order (max heap).
+Therefore, we can get the letters sorted in decreasing order based on their frequency. 
+We use pair inside the priority queue to find which letter has the maximum frequency.
+Finally, we traverse through the priority queue and add to our ans variable.
+THE string() FUNCTION :
+string(freq, char) - gives a string that has the char repeated freq times.
+We use this function as the "+" operator in C++ is costly, so we try to reduce the usage of '+' operator.
