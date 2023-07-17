@@ -1,0 +1,1 @@
+Make a new node and make its next value point to the head given. Finally return the new node as the first node of the linked list.
