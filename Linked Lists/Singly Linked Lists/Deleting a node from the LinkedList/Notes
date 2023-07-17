@@ -1,0 +1,22 @@
+It is easy to solve if they provided the head value : Just go through the entire linked list and find out the node to be deleted - The code is provided.
+
+What to do when the head pointer is not given and only the node to be deleted is given as the parameter ?
+
+Then we have to rearrange the node given in such a way that it is not considered.
+There are three steps :
+* First, the value of the next node is copied to the given node's value.
+* Then, the given node's next is changed  to the next node's next value
+* Then, we can point the next node's next to nullptr and delete it.
+
+ ListNode* temp = node->next;
+        node->val = temp->val;
+        node->next = temp->next;
+        temp->next = nullptr;
+        delete(temp);
+
+Or, we can just
+void deleteNode (ListNode* node) {
+    auto next = node->next;
+    *node = *next;
+    delete next;
+}
