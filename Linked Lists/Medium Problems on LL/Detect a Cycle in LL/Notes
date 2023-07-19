@@ -33,8 +33,7 @@ If the given LL is linear, then fast will be pointing to the last node or second
 
 Note : ( Mistake done by me when implementing on my own)
 Inside the while loop condition, instead of fast->next->next != nullptr, I checked for fast != nullptr.
-Though it may seem correct, it is wrong according to the question as the tail node is marked by -1.
-So basically, the tail node is -1 but it should not be considered as a node. Rather it should be considered as nullptr. So, fast will not be considered as nullptr and the loop will not break and it will give an error when we try to access fast->next->next.
+It is okay to check as such also, but before checking fast->next != nullptr, we have to check for fast as we don't have next for a null pointer. It will give a segmentation fault. So, inside the while condition, we can give fast != nullptr and then check for fast->next != nullptr.
 
 TC : O(N)
 SC : O(1)
