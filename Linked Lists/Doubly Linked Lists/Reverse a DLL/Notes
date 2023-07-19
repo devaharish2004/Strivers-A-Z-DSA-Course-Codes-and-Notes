@@ -1,0 +1,43 @@
+My code :
+
+Node* reverseDLL(Node* head)
+{   
+    if (head->next == nullptr) 
+    {
+        return head;
+    }
+
+    Node* currNode = head;
+    Node* prevNode = nullptr;
+
+    while (currNode != nullptr)
+    {
+        currNode->prev = currNode->next;
+        currNode->next = prevNode;
+        currNode = currNode->prev;
+        if(currNode!=nullptr)  prevNode = currNode->prev; //this works because for nullptr there will be no prevNode.
+    }
+
+    return prevNode->prev;
+}
+
+Solution code :
+
+Node* reverseDLL(Node* head)
+{
+    // Base condition
+    if (head == NULL || head->next == NULL)
+    {
+        return head;
+    }
+
+    // Recursive calls
+    Node * temp = reverseDLL(head->next);
+    
+    temp->prev = NULL;
+    head->next->next = head;
+    head->prev = head->next ;
+    head->next = NULL;
+    
+    return temp;
+}
