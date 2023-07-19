@@ -1,0 +1,40 @@
+Brute Force : Hashing
+Iterate through every node and hash them in another data structure ( set, vector or hashMap ). When you find if the node is already present in the hashtable, then we can be sure that  a cycle is detected.
+
+bool detectCycle(Node *head)
+{
+  //  Write your code here
+    Node* currNode = head;
+    vector<Node*>v;
+    while(currNode != nullptr)
+    {
+        if(find(v.begin(),v.end(),currNode) != v.end()) return(true);
+        v.push_back(currNode);
+        currNode = currNode->next;
+    }
+    return(false);
+}
+
+TC : O(N)
+SC : O(N) - since we store all nodes
+
+Optimal approach : SLOW AND FAST POINTERS - FLOYD'S CYCLE DETECTION ALGORITHM
+A cycle occurs when the TAIL node points to another node in the same linked list.
+We initialize two pointers :
+SLOW - moves 1 step
+FAST - moves 2 steps
+
+Intuition :
+Let's say we have an arrangement like this :
+fast -> slow -> node
+We see that at next step, both of them will meet at node.
+We can generalize this for all possible arrangements, we can be sure that if there is a cycle, fast and slow pointers will meet after some number of iterations through the linked list.
+If the given LL is linear, then fast will be pointing to the last node or second last node.
+
+Note : ( Mistake done by me when implementing on my own)
+Inside the while loop condition, instead of fast->next->next != nullptr, I checked for fast != nullptr.
+Though it may seem correct, it is wrong according to the question as the tail node is marked by -1.
+So basically, the tail node is -1 but it should not be considered as a node. Rather it should be considered as nullptr. So, fast will not be considered as nullptr and the loop will not break and it will give an error when we try to access fast->next->next.
+
+TC : O(N)
+SC : O(1)
