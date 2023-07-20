@@ -1,45 +1,34 @@
-/****************************************************************
+/*
+    Time complexity: O(N)
+    Space complexity: O(N)
 
- Following is the class structure of the Node class:
+    Where 'N' is the number of elements in the array 'arr'
+*/
+Node* createTree(vector<int>& arr)
+{
+    queue<Node*> q;
+    // Create the root node with the value from the first element of the array
+    Node* root = new Node(arr[0]);
+    q.push(root);
 
- class Node {
-     public int data;
-     public Node left;
-     public Node right;
+    int i = 0;
 
-     Node()
-     {
-         this.data = 0;
-         this.left = null;
-         this.right = null;
-     }
+    // Construct the binary tree using the remaining elements of the array
+    while (!q.empty() && i < 3) {
+        Node* t = q.front();
+        q.pop();
 
-     Node(int data)
-     {
-         this.data = data;
-         this.left = null;
-         this.right = null;
-     }
+        // Create the left child node with the value from the corresponding index in the array
+        Node* left = new Node(arr[2 * i + 1]);
+        t->left = left;
+        q.push(left);
 
-     Node(int data, Node left, Node right)
-     {
-         this.data = data;
-         this.left = left;
-         this.right = right;
-     }
- }
-
- *****************************************************************/
-public class Code {
-    public static Node createTree(int []arr){
-        // Write your code here.
-        Node root = new Node(arr[0]);
-        root.left = new Node(arr[1]);
-        root.right = new Node(arr[2]);
-        root.left.left = new Node(arr[3]);
-        root.left.right = new Node(arr[4]);
-        root.right.left = new Node(arr[5]);
-        root.right.right = new Node(arr[6]);
-        return(root);
+        // Create the right child node with the value from the corresponding index in the array
+        Node* right = new Node(arr[2 * i + 2]);
+        t->right = right;
+        q.push(right);
+        i++;
     }
+    return root;
 }
+ 
