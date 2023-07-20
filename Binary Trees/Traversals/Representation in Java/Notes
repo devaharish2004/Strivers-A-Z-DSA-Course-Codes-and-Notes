@@ -15,4 +15,4 @@ public class Solution {
 }
 
 Another approach is using BFS where we utilize a queue for storing the values and forming the tree.
-The code for that is in the solution of the Coding Ninjas problem.
+This approach is given in the code section.
