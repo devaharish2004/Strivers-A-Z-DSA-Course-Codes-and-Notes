@@ -1,0 +1,64 @@
+There are 3 approaches : Recursive, Iterative, and Morris traversal.
+
+Recursive : 
+Easiest way of traversal.
+TC : O(N)
+SC : O(N)
+
+Iterative :
+Uses stack to keep track of the current root and pushes the elements to the vector until the stack is not empty.
+TC : O(N)
+SC : O(1)
+
+class Solution {
+public:
+    vector<int> preorderTraversal(TreeNode* root) {
+        vector<int> nodes;
+        stack<TreeNode*> todo;
+        while (root || !todo.empty()) {
+            if (root) {
+                nodes.push_back(root -> val);
+                if (root -> right) {
+                    todo.push(root -> right);
+                }
+                root = root -> left;
+            } else {
+                root = todo.top();
+                todo.pop();
+            }
+        }
+        return nodes;
+    }
+};
+
+
+Morris traversal :
+Not sure on this algorithm.
+class Solution {
+public:
+    vector<int> preorderTraversal(TreeNode* root) {
+        vector<int> nodes;
+        while (root) {
+            if (root -> left) {
+                TreeNode* pre = root -> left;
+                while (pre -> right && pre -> right != root) {
+                    pre = pre -> right;
+                }
+                if (!pre -> right) {
+                    pre -> right = root;
+                    nodes.push_back(root -> val);
+                    root = root -> left;
+                } else {
+                    pre -> right = NULL;
+                    root = root -> right;
+                }
+            } else {
+                nodes.push_back(root -> val);
+                root = root -> right;
+            }
+        }
+        return nodes;
+    }
+};
+TC : O(N)
+SC : O(1)
