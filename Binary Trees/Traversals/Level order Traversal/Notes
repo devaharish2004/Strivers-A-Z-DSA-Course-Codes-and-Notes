@@ -1,0 +1,9 @@
+We are taking two data structures for BFS in Binary Tree :
+* Queue - to store the left and right of each element
+* Vector that contains vectors - to return the answer - this will store each level order traversal.
+
+First, we initialize a queue and push the root element to it.
+Then, we take the element from the queue and check for each element if there is a left or right.
+If there is a left or right for any element, push it to the queue.
+After doing this operation for all elements, make a vector with all the elements and push that vector to the answer (this is to return the answer)
+We do this until the queue is empty.
