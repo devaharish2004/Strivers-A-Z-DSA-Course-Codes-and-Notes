@@ -1,0 +1,2 @@
+For the iterative approach, we use a stack data structure.
+First, we will store right and then we will store left in the stack, so that when pushing out, left will come first, and then right will come.
