@@ -1,0 +1,3 @@
+We use a stack to push all the elements in the binary tree till the left is null.
+Then we print the value of root and move back in the stack. 
+This process will continue again and again till the stack is not empty.
