@@ -1,0 +1,24 @@
+Brute Force : 
+Use a hashmap to store the NODES in LL, and if the same node occurs in the map, then we return that node as a starting point 
+TC : O(N)
+SC : O(N)
+
+Optimal approach : 
+Similar to the previous problem - detect a cycle in LL, take two pointers : slow and fast
+slow - 1
+fast - 2
+Two steps :
+* Find the collision point of slow and fast
+* Initialize another variable at the head, and move that variable and slow simultaneously by 1 step.
+The point where that variable and slow collide, is the starting point of the loop.
+
+TC : O(N) (Near about)
+SC : O(1)
+
+See Striver's video for better understanding of the intuition.
+s = L1+L2
+f = L1+L2+nC
+since f == 2s
+L1 + L2 + nC = 2 ( L1 + L2 )
+nC = L1 + L2
+L1 = nC - L2
