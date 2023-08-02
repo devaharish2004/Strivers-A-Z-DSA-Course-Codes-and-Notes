@@ -1,0 +1,11 @@
+Brute Force : Hash map 
+TC : O(N)
+SC : O(N)
+
+Optimal approach :
+Use Floyd's Cycle Detection Algorithm - slow and fast pointers 
+If there is a cycle, then both the pointers meet at a common point.
+Traverse the LL once again from the common point until it reaches the common point again and increment the length variable.
+Return the length variable.
+TC : O(N)
+SC : O(1)
