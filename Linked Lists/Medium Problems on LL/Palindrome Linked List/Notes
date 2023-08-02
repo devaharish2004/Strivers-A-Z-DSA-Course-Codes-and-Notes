@@ -1,0 +1,17 @@
+Brute Force : 
+Use another space (vector) to store all the elements of the LL and check if the vector is palindromic or not.
+TC : O(N) + O(N) - one for storing and one for checking if it is palindrome.
+
+Optimal approach : 
+Two steps :
+* Find the middle of the LL (take the leftmost if the length of LL is even) - using Floyd's algo
+* Reverse the second half of the LL
+* Move the pointer to middle+1
+* Initialize a dummy node at the head and check if dummy == pointer till the end.
+* If any one node is not equal - then return it is not a palindrome.
+* If the pointer reaches null - means that it is a palindrome.
+
+TC : O(N/2) + O(N/2) + O(N/2) - one for finding middle, one for reversing the second half and one for checking in both the halves.
+Note :
+If the interviewer asks to get back the original LL, then we can redo the same steps and that will take another O(N/2) + O(N/2) TC.
+SC : O(1) 
