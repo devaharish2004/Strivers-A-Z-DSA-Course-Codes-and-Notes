@@ -1,0 +1,12 @@
+We can use either Recursive traversal or Level Order Traversal to find the height.
+But,
+* Level order solution uses queues, which ends up taking O(N) space.
+* Recursive solution doesn't use extra space, but it still uses auxillary space which ends up taking O(height) space.
+Both have their disadvantages, so we can use either of the both.
+Worst case for level order - if it is a complete binary tree - where all the nodes except the child nodes will have two nodes.
+Worst case for recursive - if it is a skew binary tree.
+Most of them use recursion, as trees mostly will be of complete binary tree and not skewed.
+
+Recursive :
+1 + max(l,r) - compute this for left and then compute it for right till left == null and right == null
+Draw a binary tree and do this to understand the algorithm.
