@@ -10,3 +10,5 @@ Most of them use recursion, as trees mostly will be of complete binary tree and 
 Recursive :
 1 + max(l,r) - compute this for left and then compute it for right till left == null and right == null
 Draw a binary tree and do this to understand the algorithm.
+TC : O(N)
+SC : O(N)
