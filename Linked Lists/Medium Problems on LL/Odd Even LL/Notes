@@ -1,0 +1,43 @@
+Two Types of Problems are here :
+
+Problem 1 : (Leetcode Variant)
+Based on odd and even INDICES.
+The idea is to split the linked list into 2 : one containing all odd nodes and other containing all even nodes. And finally, attach the even node linked list at the end of the odd node linked list.
+To split the linked list into even nodes & odd nodes, we traverse the linked list and keep connecting the consecutive odd nodes and even nodes (to maintain the order of nodes) and save the pointer to the first even node.
+Finally, we insert all the even nodes at the end of the odd node list.
+
+Problem 2 : (Coding Ninjas Variant)
+Based on odd and even DATA VALUES.
+The basic idea is to divide the linked list into two parts - odd and even. The even linked list will contain only nodes whose value is even and vice - versa for the odd linked list. Finally, we will attach the odd linked list after the even linked list.
+
+Algorithm
+
+Use four pointers ‘evenStart =null’, ‘oddStart =null’, ‘evenLast =null’, ‘oddLast =null’.
+Copy the ‘head’ of the linked list in ‘current= head’ variable.
+Iterate the linked list while it’s not null:
+Let our current node be ‘currVal’. Then ‘currVal= current->val’.
+If ( currVal %2==0 ), then it is a part of the even values linked list.
+if( evenStart==null) then it is the first node of the even values linked list.
+We set the variables ‘evenStart= current’ and ‘evenEnd= evenStart’
+Else, even values linked list has already some nodes so-
+Add ‘evenEnd ->next =current’ and ‘evenEnd= evenEnd’
+Else then it is a part of odd values linked list.
+if( oddStart==null) then it is the first node of odd values linked list.
+We set the variables ‘oddStart= current’ and ‘oddEnd= oddStart’
+Else, odd linked list has already some nodes so-
+Add ‘oddEnd ->next =current’ and ‘oddEnd= oddEnd’
+Now we have created two even and odd separate linked list(ll),
+if(oddStart == null or evenStart == null), it means we don't need to do anything just return the linked list ‘head’.
+Else concatenate the both even and odd linked list with ‘head’ by-
+evenEnd ->next = oddStart
+oddEnd -> next = null
+head= endStart
+We finally return ‘head’
+
+Time Complexity
+O(N), Where ‘N’ is the size of the given singly linked list.
+As every element of the linked list will be visited at most one the time complexity will be O(N).
+
+Space Complexity
+O(N), Where ‘N’ is the size of the given singly linked list.
+As every element of the linked list will be copied into ‘evenStart’ or ‘oddStart’ the space complexity will be O(N).
