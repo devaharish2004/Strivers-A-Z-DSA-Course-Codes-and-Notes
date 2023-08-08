@@ -1,4 +1,5 @@
 /*
+    Problem - 2 Coding Ninjas Variant
     Time complexity: O(N)
     Space complexity: O(N)
     
