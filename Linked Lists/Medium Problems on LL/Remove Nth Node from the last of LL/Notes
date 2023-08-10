@@ -35,3 +35,5 @@ Just return dummy->next as the answer as the head node will be deleted.
 TC : O(N) 
 SC : O(1)
 
+Intuition:
+When you move the fast pointer to nth node, the remaining nodes to traverse is (size_of_linked_list - n). After that, when you start moving slow pointer and fast pointer by 1 node each, it is guaranteed that slow pointer will cover a distance of (size_of_linked_list - n) nodes. And that's node we want to remove.
