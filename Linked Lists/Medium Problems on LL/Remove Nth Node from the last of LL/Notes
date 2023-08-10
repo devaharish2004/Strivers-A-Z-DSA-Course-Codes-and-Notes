@@ -1,0 +1,37 @@
+Brute Force :
+
+Iterate through the LL to find the length of the LL = n
+Now find count = n-given count
+Iterate again through the LL (1-based) and stop when we iterate till count.
+Remove the links and delete the node.
+
+Edge case :
+If given count = length (deleting the first node):
+count = 0
+Simply delete the head and mark the head as head->next.
+
+TC : O(N) + O(N)
+SC : O(1)
+
+Optimal Approach :
+Initially, three node pointers should be taken : dummy, slow, fast.
+slow and fast are initialized with dummy node and dummy node is pointed to the head.
+
+First, move the fast pointer by one step for each iteration till we reach the given count.
+Then, till the fast pointer does not reach the last node, move the slow pointer.
+When fast == last node, then we stop the process and change the links.
+
+Note : To delete the first node.
+
+Here, the fast pointer would reach the last node at the first iteration itself.
+So, the slow pointer will not move from dummy node.
+Just perform the operation as the normal cases :
+slow->next = slow->next->next;
+This breaks the next pointer of slow to head and points to the head->next value.
+Just return dummy->next as the answer as the head node will be deleted.
+
+(This is not an edge case though)
+
+TC : O(N) 
+SC : O(1)
+
