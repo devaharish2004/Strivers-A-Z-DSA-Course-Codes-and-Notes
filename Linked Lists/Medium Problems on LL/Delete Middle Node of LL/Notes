@@ -1,0 +1,3 @@
+Use the slow and fast pointer mechanism to find the node before the middle node and delete the middle node link.
+I have used an approach from the previous problem, but it can also be used by finding the middle value from the slow and fast pointers.
+Each time when iterating, use a previous pointer to keep track of the previous node and move its pointers accordingly.
