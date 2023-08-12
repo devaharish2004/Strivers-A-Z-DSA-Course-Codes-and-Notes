@@ -1,0 +1,36 @@
+Question :
+To find the matrix median of the given ROWWISE SORTED matrix.
+Here, it is given that the no.of elements in the matrix is always odd.
+Write all the matrix elements in the sorted order - and then figure out the median of the elements.
+
+Brute Force :
+
+Take all the elements from the matrix and store it in a separate data structure.
+Then, sort the elements in the data structure and find out the median from the given elements.
+
+TC : O(N*M) + O( (N*M)log(N*M) ) - to iterate the elements in the matrix and for sorting the elements.
+
+Optimal approach :
+
+The thought process is based on the fact that median is the middle element if we sort the array of the given elements.
+This means that the number of elements left to the median and number of elements right to the median are equal.
+Ex : If N*M = 9, then median will have 4 elements to the left and right of it.
+
+To know the search space :
+At minimum, we need atleast 1 element at the left.
+At maximum, we have N*M elements at the right.
+So the search space is between (1,N*M) inclusive.
+
+So,including the median, we should have N*M + 1 / 2 elements at the left to conclude it as a median.
+
+This can be done by checking each row in the matrix for finding the elements that are <= N*M+1/2.
+
+Simple binary search approach but need to traverse the whole matrix again and again to find the elements.
+
+This can be eliminated using a nested binary search approach.
+
+In each row, we have to find the number of elements <= val.
+
+We can do a binary search here. Just find the minimum index where arr[index] > val. This will give the number of minimum elements in the array.
+
+
