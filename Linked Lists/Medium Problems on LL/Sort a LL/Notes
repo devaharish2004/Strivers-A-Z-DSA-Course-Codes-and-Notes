@@ -1,0 +1,12 @@
+Brute Force :
+Iterate through the LL and store all the data in a separate data structure like arrays.
+Sort it, and create a new LL or update the existing LL and return the head.
+
+TC : O(N) + O(NlogN) + O(N)
+SC : O(N)
+
+Optimal approach : (using O(1) space)
+Merge sort similar to array approach.
+Find the middle of the LL and sort each half of the LL recursively.
+TC : O(NlogN) 
+SC : O(1)
