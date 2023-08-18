@@ -1,0 +1,8 @@
+There can be several approaches :
+
+Brute Force :
+Store the data in another space and sort it.
+
+Optimal approach :
+1. Merge Sort
+2. Take three separate LL for 0, 1 and 2 and then iterate through the LL and attach each node to their respective nodes.
