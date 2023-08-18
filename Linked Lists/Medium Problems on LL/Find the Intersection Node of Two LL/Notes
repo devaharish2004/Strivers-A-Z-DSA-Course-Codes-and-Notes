@@ -1,0 +1,55 @@
+Brute Force :
+For every node in one LL, traverse in the other LL and if both the nodes are same at any point, then we break and give our answer.
+TC : O(N*M)
+SC : O(1)
+
+Better Approach :
+Hashing
+Hash all the NODES (NOT VALUES - SINCE ONE NODE CAN HAVE MULTIPLE VALUES) of one LL in the map and iterate the other LL.
+If at any point the node is stored in the hash table, then it is the intersection point.
+
+TC : O(N) + O(M) (assuming the hash table to be operating in O(1))
+SC : O(N) - storing all the nodes of one LL
+
+Optimal approach 1 :
+
+Take two dummy nodes - each one at both LL
+Now, traverse through both the LL simultaneously to find their lengths.
+Let the longer be M, smaller be N.
+Now, compute their differences - M-N
+Traverse the dummy node at the longer side by M-N times to cover the difference between the two LL.
+After moving it to M-N distance, move both the dummy nodes simultaneously and if at some point they intersect, then it is our answer.
+If both the dummy nodes reach null, then there is no intersection point.
+
+TC : O(M) + O(M-N) + O(N) == O(2M)
+SC : O(1)
+
+Here the code is a bit lengthy - Interviewers will not like writing long codes and they prefer only short, crisp codes that are concise to the point.
+
+Optimal approach 2 :
+
+Initialize two dummy nodes, one at each LL.
+Move them simultaneously till any one node reaches NULL.
+Take the node that reached null and assign it to the head of the other LL.
+Again move the nodes, till any one reach null.
+This time, the another dummy node will point to null, so take it and assign it to the other LL.
+After this step, we can see that both nodes are aligned with each other and moving them simultaneously will give the intersecting node (if the LL intersect).
+
+Why ?
+
+Intuition :
+
+Let M - long - dummy2, N - short - dummy1
+First, moving them simultaneously till one of the dummy nodes reaches null takes N steps.
+Let dummy1 reached the null first.
+Then dummy2 has to cover another M-N distance to reach null.
+We take dummy1 and place it at the head node of M.
+After M-N distance, dummy2 will reach null and dummy1 have covered M-N distance - it needs to cover N distance now.
+Assign dummy2 to N.
+Now both are aligned.
+
+Even if there is no intersecting point, at nullptr, both the dummy nodes will meet each other.
+
+TC : O(2M)
+SC : O(1)
+
