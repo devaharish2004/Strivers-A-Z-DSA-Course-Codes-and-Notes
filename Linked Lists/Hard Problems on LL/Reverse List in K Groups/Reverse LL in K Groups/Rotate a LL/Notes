@@ -1,0 +1,14 @@
+Brute Force :
+For each k, find the last node of the LL and make it as the first node of the LL.
+TC : O(N*K)
+SC : O(1)
+
+Optimal approach :
+Traverse through the whole linked list till the last node.
+Make the last node's next point to the head pointer.
+Traverse for N-K times in the LL.
+Make the next node as head and break the next pointer of the current node as null.
+Return head.
+
+TC : O(N) (approx.)
+SC : O(1)
