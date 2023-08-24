@@ -1,0 +1,19 @@
+Flattening of LL :
+There will be child nodes for each node in the LL.
+We have to iterate through the LL in each child and each node and sort the LL in such a way that :
+
+* all the nodes are connected based on their child nodes and all their next pointers point to null.
+* The nodes should be in sorted order.
+
+We use an approach similar to the merge step in merge sort.
+
+Intuition :
+We know how to merge two sorted LL (by merge step in merge sort). We do it recursively for all the nodes and finally return the final LL.
+
+
+We go till the end of the node (through the next pointer) recursively, and we merge the child nodes of the LL.
+After merging, we get a single LL. 
+Again we repeat the same steps till we reach the first node.
+Finally return the head node.
+
+See the comments in the code or watch the youtube video to get better understanding.
