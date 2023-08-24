@@ -1,0 +1,23 @@
+Question :
+    You are given a LL where each node contains two pointers, next and random. Next points to the next node of the current node and random pointer points randomly to any node in the LL (even NULL also). The task is to create a DEEP COPY (CLONE) of the LL.
+
+Brute Force :
+The approach is to store each node in a hashmap, where it maps a node with another node.
+Here, we map the node given to us to the created new clone node.
+Iterate through the LL for creating new nodes.
+Again, iterate through the LL and assign the next and random pointers based on the hashmap values.
+
+TC : O(N) + O(N)
+SC : O(N) (for using hashmap)
+
+Optimal Approach : (without using Extra space)
+
+Three steps are followed :
+Step 1 : Iterate through the LL and for each node, insert a new node with the same value between the two nodes.
+Step 2 : Connect the random pointers with the associated correct node in the clone LL.
+Step 3 : Get back the original LL as well as the cloned LL by modifying links.
+
+TC : O(N) + O(N) + O(N)
+SC : O(1)
+
+
