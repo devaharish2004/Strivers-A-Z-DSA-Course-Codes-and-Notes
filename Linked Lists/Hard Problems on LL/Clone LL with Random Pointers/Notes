@@ -20,4 +20,5 @@ Step 3 : Get back the original LL as well as the cloned LL by modifying links.
 TC : O(N) + O(N) + O(N)
 SC : O(1)
 
+We do not assign the random pointers in the first step because some nodes might not be created.
 
