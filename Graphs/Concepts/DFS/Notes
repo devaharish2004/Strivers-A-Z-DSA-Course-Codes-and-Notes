@@ -1,0 +1,14 @@
+Here, we travel till the last node in the graph.
+The direction to be moved in the graph can be decided based on the adjacency list.
+
+DFS traversal includes traversing the whole graph based on its depth.
+
+For any node, whoever its neighbours, if they are not visited, they have to be visited in the order given in the adjacency list.
+
+Here, we use recursion for traversing the whole graph.
+
+If for any node, all its neighbouring nodes are visited, then the dfs function should complete.
+
+Each time we call the dfs function, we have to mark it as visited in the visited array, as well as we have to store the node's value in the answer array that should be returned finally.
+
+Then, we should choose its neighbours and do the same task for its neighbours also.
