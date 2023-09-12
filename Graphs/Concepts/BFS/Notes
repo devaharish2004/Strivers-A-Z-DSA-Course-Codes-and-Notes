@@ -1,0 +1,37 @@
+It is simply a level order traversal of a graph.
+The graph is given in the form of an adjacency list or and adjacency matrix.
+
+Note : Level (in graph) does not represent the levels in trees. It is the distance of a node from a starting node.
+
+The traversal can vary depending on the starting node in the graph.
+
+First, we initialize a queue data structure for storing all the levels (neighbours) of a particular node in the queue.
+
+We also have a visited array for avoiding repeatedly taking a particular node in the queue.
+
+Since the nodes can repeat themselves while taking neighbouring nodes, we should use a visited array to find if we are taking any nodes repeatedly.
+
+Initially, we push the starting node in the queue and mark in the array as visited.
+
+Then, we run a loop till the queue is empty - till there are no nodes in the graph.
+
+Each time we run through the outer loop, we take the front element from the queue and we store it in our traversal array.
+
+Then, we check for the front element's neighbours in the adjacency list and iterate through them.
+
+If the neighbouring nodes are not marked as visited, then we need to traverse it.
+So, we push the neighbouring node in the queue, and mark it as visited.
+
+If it is already marked as visited, then we ignore the node and we do not push it in the queue.
+
+SC : O(N) + O(N) + O(N) = O(3N) = O(N) (one for queue, one for visited array, one for returning the answer)
+TC : O(N) + O(2E) 
+
+Explanation for time complexity :
+O(N) - We will be going through all the nodes and store it in the queue.
+For each node, we will check if its neighbour is visited or not.
+So, actually we are checking the degree of a node here.
+The total degree of a graph is given by D.
+Since D = 2 * Number of edges in the graph, we say O(2E)
+
+Note : IT IS O(N) + O(2E) AND NOT O(N) * O(2E) - because we do not traverse through the total degree of the graph for every iteration of nodes. We just check its degrees - this will count to the total degree of the graph.
