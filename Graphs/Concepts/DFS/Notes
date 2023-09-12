@@ -12,3 +12,9 @@ If for any node, all its neighbouring nodes are visited, then the dfs function s
 Each time we call the dfs function, we have to mark it as visited in the visited array, as well as we have to store the node's value in the answer array that should be returned finally.
 
 Then, we should choose its neighbours and do the same task for its neighbours also.
+
+SC : O(N) + O(N) + O(N) = O(3N) = O(N) (one for visited array, one for recursion stack space, one for storing N nodes)
+
+TC : O(N) + O(2* Number of edges) (Similar to BFS)
+
+Since for each node, we are visiting that node's neighbours.
