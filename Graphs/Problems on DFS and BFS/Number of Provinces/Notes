@@ -1,0 +1,4 @@
+Disconnected components are traversed by moving through the visited array and checking if all the nodes are visited or not.
+If a node is not visited, then we call the dfs/bfs function that will make sure that it will run through all the connected nodes to that node.
+We can either use adjacency list or adjacency matrix to solve the problem.
+The code contains both the variations.
