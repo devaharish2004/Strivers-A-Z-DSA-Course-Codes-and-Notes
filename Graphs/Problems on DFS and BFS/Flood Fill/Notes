@@ -1,0 +1,13 @@
+Similar to the previous problem - Rotten Oranges
+
+Since we are not asked minimum time or some conditions like that, we can use both dfs and bfs to solve the problem. Both codes are given.
+
+We just need the final answer, we do not need the minimum time to get that final answer.
+
+Do similar DFS approach and BFS approach to find the final matrix.
+
+Note :
+Always copy the given matrix into some other matrix and manipulate the data in the copied matrix as in interviews, we should not manipulate the data given to us directly as data is very important.
+
+TC : O(N*M) + O(N*M * 4) ~= O(N*M)
+SC : O(N*M) (DFS - for recursive stack space, BFS - queue data structure) + O(N*M) (for storing the given data in a separate matrix)
