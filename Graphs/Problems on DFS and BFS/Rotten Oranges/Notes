@@ -1,0 +1,14 @@
+Refer to the comments in the code for clear understanding.
+
+Since we have to move levelwise (equal distance from a cell), we have to use BFS approach to solve this problem.
+
+Create a visited array to check if a cell is already rotten or not.
+
+Create a queue that is required for BFS traversal.
+
+Initially, store the row,column and the time at which the cell is rotted in the queue.
+
+Till the queue is not empty, move through each traversal and update time_max to find the maximum time to rot all oranges.
+
+TC : O(N*M) + O(N*M * 4) ~= O(N*M) (one for finding the rotten oranges and other for the number of times at max we should push elements in queue - if all oranges are fresh then N*M elements must be pushed into the queue and for each element, we should run a for loop for 4 times)
+SC : O(N*M) + O(N*M) ~= O(N*M) (one for visited array and one for the queue data structure, which might store at max N*M elements in worst case)
