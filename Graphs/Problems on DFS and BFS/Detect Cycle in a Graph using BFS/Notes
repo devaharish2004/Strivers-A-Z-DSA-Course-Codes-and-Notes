@@ -1,0 +1,30 @@
+We are asked to find if there is presence of cycle in the given graph.
+The given graph can be connected components also.
+
+So, first we create a visited array and iterate through it to run through all the connected components of the graph.
+
+For each component, we take the start node and we do BFS.
+
+Intuition : 
+
+    Whenever we do BFS, we travel levelwise in the graph. This means that we split the graph and we traverse through the splitted parts.
+    If there is no cycle, then when we traverse level wise and end up in different nodes.
+    If there is a cycle, then we would end up in the same node, even if we traverse in different parts of the graph.
+    Here, we push a pair of elements (the value and its parent element) in the queue, to avoid this problem :
+        
+        We find if there is a cycle by traversing in BFS and if the next node is already marked as visited, then it means that we end up in the same node - hence there is a cycle.
+
+        When we check for the neighbouring nodes of an element in the graph, the list will also contain the parent element from where the traversal comes from.
+
+        In that case, if we just check if the node is visited or not, obviously it will say that it has been visited, which leads to wrong answer.
+
+        So, we have to check if the node is not visited - if it is visited, it should be a parent element. Only then we can push in the queue.
+
+        Otherwise, we can conclude that there is a cycle in the graph.
+
+Here, we do some additional modifications in the BFS traversal technique.
+
+    Taking pair<int,int> in queue since we have to keep track of the parent element also.
+
+TC : O(N+2E) + O(N) - Extra O(N) for connected components
+SC : O(2N) ~ O(N)
