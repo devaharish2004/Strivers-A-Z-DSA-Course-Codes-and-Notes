@@ -1,0 +1,2 @@
+If the dfs returns to the same node again and if it is not a parent node, then we can say it contains a cycle.
+The code is also written to handle connected components.
