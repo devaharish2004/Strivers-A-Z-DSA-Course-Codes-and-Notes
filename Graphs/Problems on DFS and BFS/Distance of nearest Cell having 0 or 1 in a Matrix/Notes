@@ -5,3 +5,6 @@ We check for their adjacent elements and add them to the queue if they are not v
 When adding in the queue, we add them as row, column pairs with the steps taken to reach them.
 Since, we complete all the elements in a particular step and move to the next step, we can ensure that it can be the minimum step to reach the zero.
 (For example, in the queue, I will check for all the neighbouring elements which has a chance of taking 1 step to reach before going to 2 steps. So I can ensure that this is the minimum step possible)
+
+TC : O(N*M) + O(N*M) * 4  ~ O(N*M) (one for finding the source nodes, another for iterating in the queue - going through all the nodes and for each node 4 times we are iterating)
+SC : O(N*M) + O(N*M) - one for visited array and other for queue (another N*M for returning the answer)
