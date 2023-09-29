@@ -1,0 +1,27 @@
+In this problem, we are asked to replace all SET of O's with X's which are surrounded by X's on top, bottom, left and right.
+
+When carefully observing the problem, we find that the set of O's that are connected with the boundary O's will not be converted till the very end.
+
+So, what we can do is we can try to figure out the O's that cannot be changed to X's and replace the O's other than what we found with X's.
+
+Intuition :
+Since the boundary O's cannot be changed as there are no elements at atleast one side, we can be sure that if some portion of the set of O's is connected with the boundary, then we cannot convert it to X.
+To understand this better, see the video.
+
+We find the boundary O's and start to do DFS or BFS traversal (we choose DFS here for simplicity).
+
+Each time we do DFS, we mark it as visited and move to the next connected O to the boundary.
+
+We mark those set of O's as visited in the visited array.
+
+At last, we get the set of O's that cannot be converted to X, so we traverse through the entire array and if it is O and not visited, then we convert it to X.
+
+TC : O(N) + O(M) + O(N*M) * 4 + O(N*M) ~ O(N*M)
+* For traversing in boundary rows
+* For traversing in boundary cols
+* For dfs at worst case - need to traverse all the elements if all elements are O's (*4 for finding 4 values)
+* For traversing the array once again to replace
+
+SC : O(N*M) + O(N*M) ~ O(N*M)
+* For recursive stack space
+* For visited array
