@@ -1,0 +1,5 @@
+Here, we use BFS traversal (similar to the problem of surrounded regions)
+Again, we start from the boundary 1's and move in to find the number of 1's that cannot be traversed from the boundary.
+
+TC : O(N*M * 4)
+SC : O(N*M)
