@@ -1,0 +1,27 @@
+This is one of the extremely hard problems in graphs. (Though the code is straightforward and simple)
+
+We can apply only brute force solution - in implementing the solution we can do some tweaks to reduce the time complexity.
+
+Taking the BEGIN word, we have to check through 'a' to 'z' for all the characters of the BEGIN word and check if any word is present in the wordlist.
+
+If it is present, then that word can be a path to END.
+
+So, we can store it in a queue and look for other possible paths.
+
+Similarly, we do this for the next levels.
+
+Since this resembles level order traversal, we use BFS algorithm to solve this problem.
+
+We store the steps along with the word in the queue so that we can finally return the answer.
+
+Here, we use unordered_set for the following reasons :
+* Traversing linearly through an array takes a lot of time (to find if the word is present in the wordList or not) - In set we can use find operator
+* We should take care of the repeated words - going through the same word is unnecessary. (We should find a word only one time in the wordList, after that if we found that word in the wordList, we should not take it as it will increase the levels - but they asked for minimum steps)
+* The amortized (average-case) time complexity of the unordered_set is O(1)
+* We should remove the word from the wordlist once we find that and pushed in the queue - finding the same word after subsequent levels will take up lot of levels
+
+Once we found the END word, we can be sure that this will be the minimum steps as it is the first encounter of the word.
+
+TC : O(word_length * 26) * O(N) * O(logN) (logN incase of set, 1 incase of unordered_set)
+* O(N) - number of times the queue loop will take - since we remove the word from the wordlist each time it is pushed in the queue
+SC : O(N) - for unordered_set
