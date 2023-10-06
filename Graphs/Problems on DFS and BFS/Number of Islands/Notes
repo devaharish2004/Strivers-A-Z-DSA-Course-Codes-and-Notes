@@ -1,0 +1,12 @@
+This problem can be solved using either DFS or BFS.
+This is a multisource problem.
+We can think it of a connected components problem as we are asked to find the distinct islands in the matrix.
+We need not start from the boundary, we should iterate the whole matrix and should find the distinct islands.
+
+Note :
+This problem is no different from the previous problems, except the above point. But, in CN, this problem is made a bit trickier.
+In CN, the problem is given as :
+The islands that have the same structure are not considered as distinct islands.
+That means, if we can translate an island on to another island without reflecting or rotating the island, then they are the same islands. So it does not count to distinct islands.
+
+The code given is based on the CN problem, but however the code is similar except adding row_base and col_base to the dfs question.
