@@ -1,0 +1,15 @@
+A Bipartite Graph is a graph whose vertices can be divided into two independent sets, U and V such that every edge (u, v) either connects a vertex from U to V or a vertex from V to U. In other words, for every edge (u, v), either u belongs to U and v to V, or u belongs to V and v to U. 
+We can also say that there is no edge that connects vertices of same set.
+
+Another easy way to define a bipartite graph :
+A bipartite graph is a graph which can be coloured using 2 colours such that no adjacent nodes have the same colour. Any linear graph with no cycle is always a bipartite graph. With a cycle, any graph with an even cycle length can also be a bipartite graph. So, any graph with an odd cycle length can never be a bipartite graph.
+
+The intuition is the brute force of filling colours using any traversal technique, just make sure no two adjacent nodes have the same colour. If at any moment of traversal, we find the adjacent nodes to have the same colour, it means that there is an odd cycle, or it cannot be a bipartite graph. 
+
+The comments in the code explain the process.
+
+Here color array is equivalent to visited array
+TC and SC are similar to normal DFS algorithm
+
+TC : O(V+2E)
+SC : O(V) - for color array
