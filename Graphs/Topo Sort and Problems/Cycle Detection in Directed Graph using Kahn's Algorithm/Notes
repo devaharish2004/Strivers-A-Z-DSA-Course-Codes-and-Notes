@@ -1,0 +1,4 @@
+Simple intuition :
+If it is a DAG, then we can form a topo sort with N vertices.
+If the topo sort does not contain N vertices, then presence of cycle is the problem.
+Therefore, we can conclude that it has a cycle.
