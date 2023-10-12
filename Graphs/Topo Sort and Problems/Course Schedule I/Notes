@@ -1,0 +1,25 @@
+We have to find if the courses can be completed or not in some order.
+Here, we have been given that to complete one task, we should have been completed its previous task.
+
+Whenever we get questions like one before the another, then we can think of using topo sort.
+
+This question clearly states that we should return if it is possible or not to find such arrangement.
+
+We know that for using topo sort, it should be a DAG.
+
+Assuming that we are creating a directed graph, we should check only if the graph contains cycles or not.
+
+If there is any cycle present in the graph, then we can't form topo sort.
+
+This question can be interpreted in two ways :
+* Detect a cycle in directed graph
+* Topo sort 
+
+We use topo sort here as we have to provide the ordering of the elements in the next question (Course Schedule II)
+
+Using Kahn's algorithm, we can easily get the arrangement of elements.
+
+If all the elements can be arranged in the final ans array, then we can say that topo sort is possible.
+If the final ans array contains less than N elements, then topo sort is not possible, hence we return false.
+
+For the next question, we just return the ans array.
