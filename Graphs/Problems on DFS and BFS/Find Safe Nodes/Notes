@@ -1,0 +1,22 @@
+This problem is solved using DFS algorithm.
+It can also be solved using BFS (Topo sort), this version is given in the next folder under Topo Sort.
+
+Problem Statement :
+
+A directed graph of V vertices and E edges is given in the form of an adjacency list adj. Each node of the graph is labeled with a distinct integer in the range 0 to V – 1. A node is a terminal node if there are no outgoing edges. A node is a safe node if every possible path starting from that node leads to a terminal node. You have to return an array containing all the safe nodes of the graph. The answer should be sorted in ascending order.
+
+Intuition of the algorithm :
+
+* All terminal nodes are safe nodes (since there are no outgoing edges)
+* For a safe node, all the paths of the safe node should reach a terminal node.
+* The nodes which are present in a cycle will not be safe node.
+* The nodes which are directed towards a cycle (connected to a cycle) will not be a safe node as there always exists a path that will not reach the terminal node due to the cycle.
+
+If we somehow managed to find the nodes connected in or to a cycle, we can figure out the safe nodes.
+
+For a node, we have to do dfs traversal to go through all paths of the node.
+The algorithm can be made simpler using visited and pathVisited array - (refer detect a cycle in graph using DFS)
+
+If the node is already visited, then we know the path after that, so we need not traverse in the same path again.
+
+For further clarifications, refer youtube or notes
