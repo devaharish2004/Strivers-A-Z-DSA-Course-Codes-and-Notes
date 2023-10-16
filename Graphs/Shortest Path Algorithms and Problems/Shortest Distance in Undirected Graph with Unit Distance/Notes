@@ -1,0 +1,27 @@
+Here, the distance array is used in place of visited array so that we can find the distance and if it is visited at the same time.
+
+Here, we initialize dist array with 1e9 (largest int number) so that the condition in the adjacent node loop is simple.
+
+Steps involved (using plain BFS and some modifications) :
+
+It constructs an adjacency list to represent the graph based on the input edges.
+
+It uses a distance vector to keep track of the shortest distances from the source node to all other nodes. Initially, all distances are set to a large value (1e9), representing "infinity."
+
+It employs a queue to perform a modified BFS traversal. The queue stores nodes along with their distances from the source node.
+
+It starts with the source node, sets its distance to 0, and adds it to the queue.
+
+It performs a BFS traversal, updating distances for each visited node based on the distance from the previous node. If a shorter path is found, the distance is updated.
+
+Finally, it constructs the ans vector, where each element represents the shortest distance from the source to the corresponding node. If a node is unreachable, its distance is set to -1.
+
+The function returns the ans vector, which contains the shortest distances from the source to all nodes in the graph.
+
+Time Complexity: O(M) { for creating the adjacency list from given list ‘edges’} + O(N + 2M) { for the BFS Algorithm} + O(N) { for adding the final values of the shortest path in the resultant array} ~ O(N+2M). 
+
+Where N= number of vertices and M= number of edges.
+
+Space Complexity:  O( N) {for the stack storing the BFS} + O(N) {for the resultant array} + O(N) {for the dist array storing updated shortest paths} + O( N+2M) {for the adjacency list} ~ O(N+M) .
+
+Where N= number of vertices and M= number of edges.
