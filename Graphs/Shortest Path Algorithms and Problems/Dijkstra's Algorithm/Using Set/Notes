@@ -1,0 +1,6 @@
+The only difference between using a Priority Queue and a Set is that in a set we can check if there exists a pair with the same node but a greater distance than the current inserted node as there will be no point in keeping that node into the set if we come across a much better value than that. So, we simply delete the element with a greater distance value for the same node.
+
+Even though we erase the pairs that contain longer paths from the set, there is only a minor improvement in the time complexity of the algorithm - since erasing from a set takes O(logN) time complexity. Therefore, we can use priority queue or a set to implement the Dijkstra's algorithm.
+
+Using set, we can use the erase operation in the algorithm, as well as we can get the increasing order in the set by default. Therefore, this algorithm can also be implemented using set.
+
