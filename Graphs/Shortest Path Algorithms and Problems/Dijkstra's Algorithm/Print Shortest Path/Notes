@@ -1,0 +1,13 @@
+The shortest distance to the destination node will be found by the Dijkstra's algorithm.
+But how to find the path it used ?
+
+Intuition :
+We have to remember the node from where the shortest path comes.
+
+For this, we can use a parent array to find the parent of each node of where it come from.
+
+Whenever we update the shortest distance for reaching a node, we push it in the priority queue and we update its parent node also.
+
+Finally, we backtrack from the destination node, getting each of their parent node.
+
+This order will be in reverse, so reverse the array to get the path.
