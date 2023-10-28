@@ -1,0 +1,32 @@
+Since there can be many paths to reach a destination node from the given source node, in this problem, we have to find all those paths that are the shortest in order to reach our destination.
+
+Approach:
+
+This problem is based on Dijkstra’s Algorithm where we count all the possible shortest paths from the source to the destination node. The main thing to note here is we have to find the incoming shortest distance ways for the end node. But is it okay to find only for the end node ? No. This is because the previous nodes of the end node may come in several ways. So we have to take those in account also. That's why we define a ways array to find the shortest distance of all the nodes. Instead of incrementing the ways by 1 each time (which will give a wrong answer), we have to take the previous ways only as the reference to either update the number of ways for the current node.
+
+Initial configuration:
+
+Priority Queue: Define a Priority Queue which would contain pairs of the type {dist, node }, where ‘dist’ indicates the currently updated value of the shortest dist taken to reach from source to the current ‘node’.
+Distance Array: Define a distance array that would contain the minimum distance from the start node to the current node. If a cell is marked as ‘infinity’ then it is treated as unreachable/ unvisited.
+Source Node: Define the start node from where we have to calculate the total number of shortest paths.
+Ways Array: Define a ways array which would contain the number of possible shortest ways/paths for each node. Eventually, we would want to return ways[n-1] where n= Number of nodes.
+The Algorithm consists of the following steps :
+
+Start by creating an adjacency list, a priority queue that stores the dist-node pairs in the form {dist, node} and a dist array with each node initialized with a very large number ( to indicate that the nodes have not been visited initially). 
+In addition to the standard configuration of Dijkstra’s algorithm, we have one more array in this problem by the name ‘ways’ which is initialized to ‘0’ for every node when they’re unvisited (so the number of ways is 0).
+Now, we push the start node to the queue along with its distance marked as ‘0’ and ways marked as ‘1’ initially because we’ve just started the algorithm.
+Pop the element from the front of the queue and look out for its adjacent nodes.
+If the current dist value for a number is better than the previous distance indicated by the distance array, we update the distance in the array and push it to the queue. Now, here side by side we also keep the number of ways to the ‘node’ the same as before.
+If the current dist value is the same as the previously stored dist value at the same index, increment the number of ways by 1 at that index.
+We repeat the above steps until the queue becomes empty or till we reach the destination.
+Return the ways[n-1] modulo 10^9+7 when the queue becomes empty.
+
+Go with the dry run approach, or look into the video for clear understanding.
+
+Time Complexity: O( E* log(V)) { As we are using simple Dijkstra’s algorithm here, the time complexity will be or the order E*log(V)}
+
+Where E = Number of edges and V = No. of vertices.
+
+Space Complexity :  O(N) { for dist array + ways array + approximate complexity for priority queue }
+
+Where, N = Number of nodes.
