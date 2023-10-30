@@ -1,0 +1,32 @@
+This problem is an implementation of Floyd Warshall Algorithm. However, we can do the same with Dijkstra's algorithm also (just use Dijkstra for all the nodes - plain implementation of Floyd Warshall using Dijkstra when there is no negative edges)
+
+In order to solve this problem, we will use the Floyd Warshall algorithm (article link of Floyd Warshall). We know Floyd Warshall algorithm helps us to generate a 2D matrix, that stores the shortest distances from each node to every other node. In the generated 2D matrix, each cell matrix[i][j] represents the shortest distance from node i to node j.
+
+After generating the 2D matrix(that contains the shortest paths) using the Floyd Warshall algorithm, for each node, we will count the number of nodes with a distance lesser or equal to the distanceThreshold by iterating each row of that matrix. Finally, we will choose the node with the minimum number of adjacent cities(whose distance is at the most distanceThreshold) and with the largest value.
+
+Note: This 2D matrix can also be generated using Dijkstra’s algorithm. As Dijkstra’s algorithm is a single-source shortest-path algorithm, we need to calculate the shortest distances for one single node at a time. So, to create the 2D matrix we need to apply Dijkstra’s algorithm to each of the V nodes separately.
+
+Intuition:
+For each node, the job is to find the shortest distances to every other node and count the number of adjacent cities(Let’s say: cntCity) whose distance is at the most distanceThreshold. Finally, the task is to choose the node with the largest value and the minimum ‘cntCity’ value.
+
+Approach: 
+
+Initial Configuration:
+
+Adjacency Matrix(dist): All the cells of the matrix are initially set to infinity(∞).
+
+cntCity: Initially set to V(no. of nodes) i.e. the maximum value possible. It will store the minimum number of cities whose distance is at most distanceThreshold.
+
+cityNo: Initially set to -1. It will store the answer i.e. the node with the largest value and the minimum ‘cntCity’ value. 
+
+The algorithm steps are as follows:
+
+First, we will iterate over the edges, and set the value of dist[fromi][toi] and dist[toi][fromi] to weighti as the edges are bidirectional.
+After having set the adjacency matrix accordingly, we will run a loop from 0 to V-1(V = no. of vertices). In the kth iteration, this loop will help us to check the path via node k for every possible pair of nodes. Basically, this loop will change the value of k in the formula(given in step 4).
+Inside the loop, there will be two nested loops for generating every possible pair of nodes(Nothing but to visit each cell of a 2D matrix using the nested loop). Among these two loops, the first loop will change the value of i and the second one will change the value of j in the formula(given in step 4).
+Inside these nested loops, we will apply the following formula to calculate the shortest distance between the pair of nodes:dist[i][j] =min(dist[i][j], dist[i ][k]+dist[k][j]), where i = source node, j = destination node, and k = the node via which we are reaching from i to j.
+The adjacency matrix will store all the shortest paths for each node. For example, dist[i][j] will store the shortest path from node i to node j.
+After that, we will count the nodes(cnt) with a distance lesser or equal to distanceThreshold and check if it is lesser than the current value of cntCity.
+If it is lesser, we will update cntCity with the count of nodes and cityNo with the value of the current city.
+Finally, we will return cityNo as our answer.
+Note: If we need to find out the number of adjacent cities as well, we need to return cntCity-1. This is because we have included the node itself in the group of adjacent nodes whose distance is at the most distanceThreshold.
