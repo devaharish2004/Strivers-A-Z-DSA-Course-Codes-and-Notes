@@ -1,3 +1,56 @@
-Two ways :
-Tabulation - Bottom up
-Memoization - Top Down
+The two common dynamic programming approaches are:
+
+Memoization: Known as the “top-down” dynamic programming, usually the problem is solved in the direction of the main problem to the base cases.
+Tabulation: Known as the “bottom-up ” dynamic programming, usually the problem is solved in the direction of solving the base cases to the main problem
+Note: The base case does not always mean smaller input. It depends upon the implementation of the algorithm.
+
+Steps to memoize a recursive solution:
+
+Any recursive solution to a problem can be memoized using these three steps:
+
+Create a dp[n+1] array initialized to -1.
+Whenever we want to find the answer of a particular value (say n), we first check whether the answer is already calculated using the dp array(i.e dp[n]!= -1 ). If yes, simply return the value from the dp array.
+If not, then we are finding the answer for the given value for the first time, we will use the recursive relation as usual but before returning from the function, we will set dp[n] to the solution we get.
+
+Time Complexity: O(N)
+
+Reason: The overlapping subproblems will return the answer in constant time O(1). Therefore the total number of new subproblems we solve is ‘n’. Hence total time complexity is O(N).
+
+Space Complexity: O(N)
+
+Reason: We are using a recursion stack space(O(N)) and an array (again O(N)). Therefore total space complexity will be O(N) + O(N) ≈ O(N)
+
+Part -2: Tabulation
+
+Tabulation is a ‘bottom-up’ approach where we start from the base case and reach the final answer that we want.
+
+Steps to convert Recursive Solution to Tabulation one.
+
+Declare a dp[] array of size n+1.
+First initialize the base condition values, i.e i=0 and i=1 of the dp array as 0 and 1 respectively.
+Set an iterative loop that traverses the array( from index 2 to n) and for every index set its value as dp[i-1] + dp[i-2]. 
+Time Complexity: O(N)
+
+Reason: We are running a simple iterative loop
+
+Space Complexity: O(N)
+
+Reason: We are using an external array of size ‘n+1’.
+
+Part 3: Space Optimization
+
+If we closely look at the relation,
+
+dp[i] =  dp[i-1] + dp[i-2]
+
+we see that for any i, we do need only the last two values in the array. So is there a need to maintain a whole array for it? 
+
+The answer is ‘No’. Let us call dp[i-1] as prev and dp[i-2] as prev2.
+
+Time Complexity: O(N)
+
+Reason: We are running a simple iterative loop
+
+Space Complexity: O(1)
+
+Reason: We are not using any extra space
