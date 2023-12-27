@@ -1,0 +1,53 @@
+Find the Diameter of a Binary Tree. Diameter is the length of the longest path between any 2 nodes in the tree and this path may or may not pass from the root.
+
+Solution 1: Naive approach
+
+Intuition :
+
+The idea is to consider every node as a Curving Point in diameter. For our understanding, we can define the curving point as the node on the diameter path which has the maximum height. In the above examples, the Curving Point is node 4 in Example 1 and node 8 in Example 2.
+
+Now, if we observe carefully, we can see that diameter of the tree can be defined as left subtree height + right subtree height from the Curving Point.
+
+So, the idea to find the Curving Point is, consider every node in the tree as a curving point and calculate the diameter for every curving point and return the maximum of all diameters.
+
+Diameter at given Curving Point = Left Height + Right Height 
+
+Approach : 
+
+Traverse the tree recursively.
+At every node, calculate height of left and right subtrees.
+Calculate the diameter for every node using the above formula.
+Calculate the maximum of all diameters. This can be done simply using a variable passed by reference in the recursive calls or a global static variable.
+
+Time Complexity: O(N*N) ( For every node, Height Function is called which takes O(N) time hence for every node it becomes N*N ) 
+
+Space Complexity: O(1) ( Extra Space ) + O(H) ( Recursive Stack Space where “H” is the height of tree )
+
+Solution 2: Post Order Traversal
+
+Intuition :
+
+Is it possible to optimize the above solution further? Which operation do you think is very repetitive in nature in the above solution?
+
+💡 Height of the subtrees.
+
+Can we use postorder traversal to calculate everything in a single traversal of the tree?
+
+Yes, as in post-order traversal, we have to completely traverse the left and right subtree before visiting the root node.
+
+So, the idea is to use post-order traversal and keep calculating the height of the left and right subtrees. Once we have the heights at the current node, we can easily calculate both the diameter and height of the current node.
+
+Approach : 
+
+Start traversing the tree recursively and do work in Post Order.
+In the Post Order of every node , calculate diameter and height of the current node.
+If current diameter is maximum then update the variable used to store the maximum diameter.
+Return height of current node to the previous recursive call.
+
+Time Complexity: O(N) 
+
+Space Complexity: O(1) Extra Space + O(H) Recursion Stack space (Where “H”  is the height of binary tree )  
+
+Note :
+In approach 1, we need to recursively traverse the tree two times (one for finding the max height of the tree and one for going through all the nodes to find the diameter at that node).
+In approach 2, we find the height of the subtrees at a particular node, and then just updating our answer based on the resultant value.
