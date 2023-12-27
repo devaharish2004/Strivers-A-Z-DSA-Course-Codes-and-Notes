@@ -1,0 +1,27 @@
+Problem Statement: Write a program to find the maximum sum path in a binary tree. A path in a binary tree is a sequence of nodes where every adjacent pair of nodes are connected by an edge. A node can only appear in the sequence at most once. A path need not pass from the root. We need to find the path with the maximum sum in the binary tree.
+
+Solution:
+Approach: A brute force approach would be to generate all paths and compare them. Generating all paths will be a time-costly activity therefore we need to look for something else.
+
+We first need to define what is the maximum path sum through a given node (when that node is acting as the root node/curving point). At a given node with a value, if we find the max leftSumPath in the left-subtree and the max rightSumPath in the right subtree, then the maxPathSum through that node is value+(leftSumPath+rightSumPath).
+
+Now we can apply this formula at every node by doing a simple tree traversal and storing the maximum value (our answer) in a reference variable.
+
+//  Important :
+For our recursion to work, it is very important to understand what value we return from our function. In our recursive function, we find and compare the maxPathSum from a given node when it is the root/turning point of the path. But what we return is the maxPathSum of that same node when it is NOT the root/turning point of the path. To find the latter maxPath, we no longer have the liberty to consider both leftMaxPath and rightMaxPath, we will simply take the maximum of the two and it to the value of the node.
+//
+
+To summarize:
+
+Initialize a maxi variable to store our final answer.
+Do a simple tree traversal. At each node, find  recursively its leftMaxPath and its rightMaxPath.
+Calculate the maxPath through the node as val + (leftMaxPath + rightMaxPath) and update maxi accordingly.
+Return the maxPath when node is not the curving point as val + max(leftMaxPath, rightMaxPath).
+
+Time Complexity: O(N).
+
+Reason: We are doing a tree traversal.
+
+Space Complexity: O(N)
+
+Reason: Space is needed for the recursion stack. In the worst case (skewed tree), space complexity can be O(N).
