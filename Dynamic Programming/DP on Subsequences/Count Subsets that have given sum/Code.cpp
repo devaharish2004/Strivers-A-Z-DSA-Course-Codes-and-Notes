@@ -83,3 +83,12 @@ int findWays(vector<int>& arr, int k)
 
 	return dp[n-1][k];
 }
+/*if(ind == 0){
+            if(target==0 && arr[0]==0)
+                return 2;
+            if(target==0 || target == arr[0])
+                return 1;
+            return 0;
+    }
+	//base case for arrays containing zeros
+*/
