@@ -1,4 +1,4 @@
-public class Solution {
+public class Code {
     // public static int lcs(String str1, String str2){
     //     // Write your code here.
     //     int n = str1.length();
