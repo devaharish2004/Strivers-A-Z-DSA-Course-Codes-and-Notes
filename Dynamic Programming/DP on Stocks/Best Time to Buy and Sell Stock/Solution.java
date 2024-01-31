@@ -12,3 +12,5 @@ class Solution {
         return maxprofit;
     }
 }
+
+//for all stocks problem, do till space optimization - MUST
