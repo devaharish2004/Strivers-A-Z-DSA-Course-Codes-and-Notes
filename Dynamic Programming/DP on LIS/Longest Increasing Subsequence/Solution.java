@@ -65,35 +65,59 @@ class Solution
     // }
 
     //SPACE OPTIMIZATION
-    public int lengthOfLIS(int[] nums) 
+    // public int lengthOfLIS(int[] nums) 
+    // {
+    //     int n = nums.length;
+    //     int[] prev = new int[n+1];
+    //     int[] curr = new int[n+1];
+    //     //base case
+    //     for(int max_ind = 0; max_ind <= n; max_ind++)
+    //     {
+    //         prev[max_ind] = 0;
+    //     }
+
+    //     for(int ind = 1; ind <= n; ind++)
+    //     {
+    //         for(int max_ind = 0; max_ind <= n; max_ind++)
+    //         {
+    //             int notPick = 0 + prev[max_ind];
+    //             int pick = 0;
+    //             if(max_ind == n || nums[ind-1] < nums[max_ind])
+    //             {
+    //                 pick = 1 + prev[ind-1];
+    //             }
+
+    //             curr[max_ind] = Math.max(pick, notPick);
+    //         }
+    //         prev = curr.clone();
+    //     }
+
+    //     return curr[n];
+
+
+ // }
+
+    //Using O(N^2) approach through iteration and Space complexity O(N) - for printing the LIS
+    public int lengthOfLIS(int[] nums)
     {
         int n = nums.length;
-        int[] prev = new int[n+1];
-        int[] curr = new int[n+1];
-        //base case
-        for(int max_ind = 0; max_ind <= n; max_ind++)
+        int dp[] = new int[n];
+        int ans = 1;
+        for(int i = 0; i < n; i++)
         {
-            prev[max_ind] = 0;
-        }
-
-        for(int ind = 1; ind <= n; ind++)
-        {
-            for(int max_ind = 0; max_ind <= n; max_ind++)
+            for(int prev = 0; prev < i; prev++)
             {
-                int notPick = 0 + prev[max_ind];
-                int pick = 0;
-                if(max_ind == n || nums[ind-1] < nums[max_ind])
-                {
-                    pick = 1 + prev[ind-1];
-                }
-
-                curr[max_ind] = Math.max(pick, notPick);
+                if(nums[prev] < nums[i])
+                dp[i] = Math.max(1 + dp[prev], dp[i]);
             }
-            prev = curr.clone();
+
+            ans = Math.max(ans, dp[i]);
         }
 
-        return curr[n];
-
+        return ans;
 
     }
+
+
+
 }
