@@ -1,4 +1,4 @@
-class Solution 
+public class Solution 
 {
     //MEMOIZATION
     // public int solve(int ind, int max_ind, int[] nums, int n, int[][] dp)
