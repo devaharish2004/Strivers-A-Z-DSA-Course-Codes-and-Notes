@@ -16,6 +16,7 @@ public class Solution {
 
         Arrays.sort(nums);
         
+        //O(n^2)
         for(int ind = 0; ind <= n-1; ind++)
         {
             
@@ -41,6 +42,7 @@ public class Solution {
             }
         }
         
+        //O(n) for backtracking
         List<Integer> list = new ArrayList<Integer>();
         list.add(nums[max_index]);
         
@@ -65,4 +67,6 @@ public class Solution {
  * The algorithm for checking divisibility optimally works only because the given array has been sorted.
  * Instead of checking if the current number forms an increasing subsequence, we can check if the current number is divisible with the previous element.
  * As the array is sorted, we can be sure that checking the above one condition is enough instead of checking for all the elements of the ans array.
+ * TC : O(N^2) + O(N)
+ * SC : O(2N) ~ O(N)
  */
