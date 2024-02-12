@@ -50,3 +50,8 @@ class Solution
     }
 
 }
+
+/*
+ * TC : ~ O(N*N) + O(N)
+ * SC : O(2N) ~ O(N)
+ */ 
