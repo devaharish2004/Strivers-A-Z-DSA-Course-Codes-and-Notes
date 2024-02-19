@@ -76,3 +76,8 @@ int burstBalloons(vector<int> &arr)
     return dp[1][n];
     
 }
+
+/*
+The main approach to this problem is starting from the last rather from the first. Which means that we have to check that which balloon in the range [start, end] is burst last.
+This is to make the subproblems independent, as moving from the first will result in dependency of subproblems on one another, where in recursion we cannot solve dependent subproblems.
+*/
