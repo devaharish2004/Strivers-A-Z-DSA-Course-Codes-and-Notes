@@ -41,7 +41,7 @@ public:
 
         q.push({root, {0,0}});
 
-        //level order traversal
+        //level order traversal - can use inorder, postorder or preorder
         while(!q.empty())
         {
             auto el = q.front();
