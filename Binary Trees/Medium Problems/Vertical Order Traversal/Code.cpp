@@ -34,6 +34,7 @@ public:
         //data structure to store the result
         // here we use multiset to take duplicate values also in the same level 
         //vertical, level, multiset
+        //when two nodes are in the same vertical and same level, we should sort them in order.
         map<int, map<int, multiset<int>>> nodes;
 
         //queue for level order traversal
