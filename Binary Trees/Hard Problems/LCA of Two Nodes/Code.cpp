@@ -23,3 +23,5 @@ public:
 
 // TC : O(N)
 // SC : O(N)
+
+//Brute force would be do find individual paths for both the nodes, storing them in separate arrays and finding the common node among them.
