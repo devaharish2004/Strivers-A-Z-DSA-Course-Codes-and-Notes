@@ -7,7 +7,8 @@
  *     TreeNode(int x) { val = x; }
  * }
  */
-public class Codec {
+import java.util.*;
+public class Code {
 
     // Encodes a tree to a single string.
     public String serialize(TreeNode root) {
