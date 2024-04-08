@@ -92,7 +92,7 @@ class BinaryTreeNode<T> {
         }
         if(node.right == null) {
             return node.left;
-        }
+        } 
         //both left and right have nodes
         //two approaches can be used
         // attaching the left subtree first and attaching the right subtree to the right of the left subtree
