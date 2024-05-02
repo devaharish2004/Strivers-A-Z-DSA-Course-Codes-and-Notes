@@ -1,0 +1,9 @@
+Brute force :
+Inorder traversal, store it in the vector/arraylist and use the two sum approach (two pointers approach).
+TC : O(N) + O(N)
+SC : O(N)
+
+Optimal approach :
+Using BST Iterator, finding the first and the last element and moving them accordingly (similar to the two pointer approach, here using iterators)
+TC : O(N)
+SC : O(H)+O(H)
