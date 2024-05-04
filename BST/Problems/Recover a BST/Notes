@@ -1,0 +1,19 @@
+Brute force approach of solving this is to use the inorder traversal of the BST.
+Inorder will always provide the sorted order of the tree, but in this case, there are two numbers which are swapped.
+By sorting the inorder traversal of the given swapped BST, and doing another inorder traversal to find out which nodes does not match.
+Exactly two nodes will not be matched, we can just change their node values according to the inorder traversal.
+
+TC : O(N) + O(N) + O(NlogN)
+SC : O(N) - for storing inorder traversal
+
+Optimal approach :
+Two cases :
+Case 1 : If both the swapped nodes are not adjacent
+In such case, there will be two places where the condition arr[i+1] > arr[i] is not met. (Since for inorder traversal of BST, every node should be in non-decreasing order)
+Therefore, we can figure out using the first and the last variables and swap their values during the first inorder traversal itself.
+
+Case 2 : If both the swapped nodes are adjacent.
+In such case, the condition will not meet at only one place, which means that both the nodes are adjacent. Therefore, we can consider a middle pointer to point the next element in that array, and if the last is not found, we can just swap the first and the middle.
+
+TC : O(N)
+SC : O(1)
