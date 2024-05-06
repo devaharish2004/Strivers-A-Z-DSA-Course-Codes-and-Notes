@@ -3,7 +3,7 @@
 
 import java.util.Arrays;
 
-class Solution {
+class Code {
     public int lengthOfLongestSubstring(String s) {
         int n = s.length();
         int left = 0;
